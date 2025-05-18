@@ -49,10 +49,40 @@ def update():
 #2.Create actors and add it to items list
 #3.Layout items-display them with equal spacing
 #4.Animations-move objects down
+#Create Function for all the steps
 
-def make_items():
-    pass
+def make_items(number_of_extra_items):
+    #Step1:
+    items_to_create= get_option_to_create(number_of_extra_items) #function in front because it returns a value as a result of the function.Whenever you return something you need to store it in a variable.
+    #Step2:
+    new_items = create_items(items_to_create) #function in front because it returns a list as a result of the function.Whenever you return something you need to store it in a variable.
+    #Step 3:
+    layout_items(new_items)
+    #Step 4:
+    animate_items(new_items)
+
+    return new_items
     
+def get_option_to_create(number_of_extra_items):
+    items_to_create=['paper']
+    for i in range(0,number_of_extra_items):
+        random_option=random.choice(ITEMS)
+        items_to_create.append(random_option)
+    return items_to_create
+
+def create_items(items_to_create):
+    new_items=[]
+    for i in items_to_create:
+        item = Actor( i +'img')
+        new_items.append(item)
+    return new_items
+
+def layout_items(items_to_layout):
+    pass
+
+def animate_items(items_to_animate):
+    pass
 
 
 pgzrun.go()
+
